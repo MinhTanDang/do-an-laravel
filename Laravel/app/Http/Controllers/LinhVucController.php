@@ -1,6 +1,11 @@
 <?php
+
     namespace App\Http\Controllers;
+
     use Illuminate\Http\Request;
+    use App\Http\Requests\CapNhatLinhVucRequest;
+    use App\Http\Requests\ThemMoiLinhVucRequest;
+
     use App\LinhVuc;
 
     class LinhVucController extends Controller
@@ -15,16 +20,13 @@
             return view('linh-vuc.form');
         }
 
-        public function store(Request $request){
+        public function store(ThemMoiLinhVucRequest $request){
             $tenLinhVuc = $request->ten_linh_vuc;
-            $flag = LinhVuc::withTrashed()->where('ten_linh_vuc', $tenLinhVuc)->doesntExist();
-            //
-            if($flag){
-                $linhVuc = new LinhVuc;
-                $linhVuc->ten_linh_vuc = $tenLinhVuc;
-                $linhVuc->save(); 
-            }
-            return view('linh-vuc.form');
+            $linhVuc = new LinhVuc;
+            $linhVuc->ten_linh_vuc = $tenLinhVuc;
+            $linhVuc->save();
+            $msg = "Thêm mới lĩnh vực thành công";
+            return view('linh-vuc.form', compact('msg'));
         }
 
         public function edit($id){
@@ -32,15 +34,12 @@
             return view('linh-vuc.form', compact('linhVuc'));
         }
 
-        public function update(Request $request, $id){
+        public function update(CapNhatLinhVucRequest $request, $id){
             $tenLinhVuc = $request->ten_linh_vuc;
             $linhVuc = LinhVuc::find($id);
-            $flag = LinhVuc::where('ten_linh_vuc', $tenLinhVuc)->doesntExist();
-            //
-            if($flag){
-                $linhVuc->ten_linh_vuc = $tenLinhVuc;
-                $linhVuc->save();
-            }
+            $linhVuc->ten_linh_vuc = $tenLinhVuc;
+            $linhVuc->save();
+            $msg = "Cập nhật lĩnh vực thành công";
             return redirect()->route('linh-vuc.danh-sach');
         }
 
@@ -64,7 +63,6 @@
         public function delete($id){
             $linhVuc = LinhVuc::onlyTrashed()->find($id);
             $linhVuc->forceDelete();
-            //$linhVuc->truncate();
             return redirect()->route('linh-vuc.thung-rac');
         }
     }

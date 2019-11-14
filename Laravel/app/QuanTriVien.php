@@ -1,15 +1,21 @@
 <?php
-    namespace App;
-    use Illuminate\Database\Eloquent\SoftDeletes;
-    use Illuminate\Foundation\Auth\User as Authenticatable;
 
-    class QuanTriVien extends Authenticatable
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class QuanTriVien extends Authenticatable
+{
+    protected $table = 'quan_tri_vien';
+    use SoftDeletes;
+    //
+    protected function redirectTo($request)
     {
-        protected $table = 'quan_tri_vien';
-        use SoftDeletes;
-        //
-        public function getPasswordAttribute(){
-            return $this->mat_khau;
-        }
+        return route('layout');
     }
-?>
+    public function getPasswordAttribute(){
+        return $this->mat_khau;
+    }
+}

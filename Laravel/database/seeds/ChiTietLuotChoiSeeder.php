@@ -1,9 +1,10 @@
 <?php
-    use Illuminate\Database\Seeder;
 
-    class ChiTietLuotChoiSeeder extends Seeder{
-        public function run(){
-            //
-        }
+use Illuminate\Database\Seeder;
+
+class ChiTietLuotChoiSeeder extends Seeder
+{
+    public function run(){
+       //
     }
-?>
+}
