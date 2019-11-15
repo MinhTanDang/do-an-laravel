@@ -13,7 +13,9 @@ $(document).ready(function () {
             if (result.value) {
                 Swal.fire('', 'Đã xóa lĩnh vực!', 'success'
                 ).then((result) => {
-                    window.location.href = $(this).data('href')
+                    if (result.value) {
+                        window.location.href = $(this).data('href')
+                    };
                 });
             };
         });
