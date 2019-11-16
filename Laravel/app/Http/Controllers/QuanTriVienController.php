@@ -55,7 +55,18 @@ class QuanTriVienController extends Controller
     }
 
     public function xuLyDoiMatKhau(DoiMatKhauQuanTriVienRequest $request, $id){
-        return "falsee";
+        $matKhauCu = $request->mat_khau_cu;
+        $matKhauMoi = $request->mat_khau_moi;
+        $quanTriVien = QuanTriVien::find($id);
+        //
+        if(Auth::attempt(['ten_dang_nhap' => $quanTriVien->ten_dang_nhap, 'password' => $matKhauCu])){
+           $quanTriVien->mat_khau = Hash::make($matKhauMoi);
+           $quanTriVien->save();
+           $msgSuccess = "Đổi mật khẩu thành công";
+           return view('quan-tri-vien.doi-mat-khau', compact('quanTriVien', 'msgSuccess'));
+        }
+        $msgFail = "Mật khẩu cũ không chính xác";
+        return view('quan-tri-vien.doi-mat-khau', compact('quanTriVien', 'msgFail'));
     }
     //
     public function index(){
