@@ -13,6 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('dang_nhap','API\LoginController@dangNhap');
+
+//Lay danh sach linh vuc
+Route::get('danh-sach-linh-vuc','API\LinhVucController@layDSLinhVuc');
+
+//Lay danh sach cau hoi theo tung linh vuc
+Route::get('danh-sach-cau-hoi/{id}','API\CauHoiController@layDSCauHoiTheoLinhVuc');
+
+//Lay danh sach nguoi choi
+Route::get('danh-sach-nguoi-choi','API\NguoiChoiController@layDSNguoiChoi');
+
+//Lay danh sach goi credit
+Route::get('danh-sach-goi-credit','API\GoiCreditController@layDSGoiCredit');

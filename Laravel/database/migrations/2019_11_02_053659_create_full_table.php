@@ -15,7 +15,7 @@
 
             Schema::create('cau_hoi', function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('linh_vuc_id');
+                $table->unsignedInteger('linh_vuc_id');
                 $table->string('noi_dung');
                 $table->string('phuong_an_a');
                 $table->string('phuong_an_b');
@@ -52,8 +52,8 @@
             Schema::create('lich_su_mua_credit', function (Blueprint $table)
             {
                 $table->increments('id');
-                $table->integer('nguoi_choi_id');
-                $table->integer('goi_credit_id');
+                $table->unsignedInteger('nguoi_choi_id');
+                $table->unsignedInteger('goi_credit_id');
                 $table->integer('credit');
                 $table->integer('so_tien');
                 $table->timestamps();
@@ -62,7 +62,7 @@
             Schema::create('luot_choi', function (Blueprint $table)
             {
                 $table->increments('id');
-                $table->integer('nguoi_choi_id');
+                $table->unsignedInteger('nguoi_choi_id');
                 $table->integer('so_cau');
                 $table->integer('diem');
                 $table->string('ngay_gio');
@@ -72,8 +72,8 @@
             Schema::create('chi_tiet_luot_choi', function (Blueprint $table)
             {
                 $table->increments('id');
-                $table->integer('luot_choi_id');
-                $table->integer('cau_hoi_id');
+                $table->unsignedInteger('luot_choi_id');
+                $table->unsignedInteger('cau_hoi_id');
                 $table->string('phuong_an');
                 $table->integer('diem');
                 $table->timestamps();
