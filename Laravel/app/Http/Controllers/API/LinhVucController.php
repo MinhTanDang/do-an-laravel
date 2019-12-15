@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\LinhVuc;
 class LinhVucController extends Controller
 {
-    public function layDSLinhVuc(Request $request){
+    public function layDSLinhVuc(){
         $dsLinhVuc = LinhVuc::all();
         $result = [
             'success' => true,

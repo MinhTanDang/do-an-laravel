@@ -30,3 +30,6 @@ Route::get('danh-sach-nguoi-choi','API\NguoiChoiController@layDSNguoiChoi');
 
 //Lay danh sach goi credit
 Route::get('danh-sach-goi-credit','API\GoiCreditController@layDSGoiCredit');
+
+//Xu ly dang nhap
+Route::post('xu-ly-dang-nhap','API\NguoiChoiController@xuLyDangNhap');
