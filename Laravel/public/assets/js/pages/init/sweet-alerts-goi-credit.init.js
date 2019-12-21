@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.xoa_goi_credit').click(function () {
         Swal.fire({
             title: 'Bạn có chắc xóa không?',
-            text: 'Bạn sẽ không thể khôi phục gói credit này!',
+            text: "Bạn sẽ không thể khôi phục gói credit này!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

@@ -28,15 +28,26 @@
                 @if (isset($cauHinhDiemCauHoi))
                     action="{{ route('cau-hinh-diem-cau-hoi.xu-ly-cap-nhat', ['id' => $cauHinhDiemCauHoi->id]) }}" method="POST">
                     @method('PUT')
+                @else
+                    action="{{ route('cau-hinh-diem-cau-hoi.xu-ly-them-moi') }}" method="POST">
                 @endif
                     @csrf
                     <div class="form-group">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <b>{{ $errors->first() }}</b>
+                            </div>
+                        @elseif(isset($msg))
+                            <div class="alert alert-success">
+                                <b>{{ $msg }}</b>
+                            </div>
+                        @endif
                         <label>Thứ tự<span class="text-danger">*</span></label>
-                        <input type="text" name="thu_tu" required placeholder="Nhập thứ tự" class="form-control">
+                        <input type="text" name="thu_tu" placeholder="Nhập thứ tự" class="form-control">
                     </div>
                     <div class="form-group">
                             <label>Điểm<span class="text-danger">*</span></label>
-                            <input type="text" name="diem" required placeholder="Nhập điểm" class="form-control">
+                            <input type="text" name="diem" placeholder="Nhập điểm" class="form-control" type="number">
                         </div>
                     <div class="form-group text-left mb-0">
                         <button type="submit" class="btn btn-success waves-effect waves-light">Lưu</button>

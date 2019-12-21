@@ -152,15 +152,25 @@ Route::middleware('auth')->group(function(){
         Route::prefix('cau-hinh-diem-cau-hoi')->group(function () {
             Route::name('cau-hinh-diem-cau-hoi.')->group(function () {
                 Route::get('/', 'CauHinhDiemCauHoiController@index')->name('danh-sach');
-                Route::get('/them-moi', 'CauHinhDiemCauHoiController@create')->name('them-moi');
-                Route::post('/them-moi', 'CauHinhDiemCauHoiController@store')->name('xu-ly-them-moi');
                 Route::get('/cap-nhat/{id}', 'CauHinhDiemCauHoiController@edit')->name('cap-nhat');
                 Route::put('/cap-nhat/{id}', 'CauHinhDiemCauHoiController@update')->name('xu-ly-cap-nhat');
-                Route::get('/xoa/{id}', 'CauHinhDiemCauHoiController@destroy')->name('xoa');
-                //
-                Route::get('/thung-rac', 'CauHinhDiemCauHoiController@onlyTrashed')->name('thung-rac');
-                Route::get('/khoi-phuc/{id}', 'CauHinhDiemCauHoiController@restore')->name('khoi-phuc');
-                Route::get('/xoa-bo/{id}', 'CauHinhDiemCauHoiController@delete')->name('xoa-bo');
+            });
+        });
+        //
+        Route::prefix('cau-hinh-app')->group(function () {
+            Route::name('cau-hinh-app.')->group(function () {
+                Route::get('/', 'CauHinhAppController@index')->name('danh-sach');
+                Route::get('/cap-nhat/{id}', 'CauHinhAppController@edit')->name('cap-nhat');
+                Route::put('/cap-nhat/{id}', 'CauHinhAppController@update')->name('xu-ly-cap-nhat');
+
+            });
+        });
+        //
+        Route::prefix('cau-hinh-tro-giup')->group(function () {
+            Route::name('cau-hinh-tro-giup.')->group(function () {
+                Route::get('/', 'CauHinhTroGiupController@index')->name('danh-sach');
+                Route::get('/cap-nhat/{id}', 'CauHinhTroGiupController@edit')->name('cap-nhat');
+                Route::put('/cap-nhat/{id}', 'CauHinhTroGiupController@update')->name('xu-ly-cap-nhat');
             });
         });
     });

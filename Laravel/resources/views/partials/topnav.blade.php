@@ -112,10 +112,10 @@
                             <a href="#">Cấu hình<div class="arrow-down"></div></a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="#">Cấu hình app</a>
+                                    <a href="{{ route('cau-hinh-app.danh-sach') }}">Cấu hình app</a>
                                 </li>
                                 <li>
-                                    <a href="#">Cấu hình trợ giúp</a>
+                                    <a href="{{ route('cau-hinh-tro-giup.danh-sach') }}">Cấu hình trợ giúp</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('cau-hinh-diem-cau-hoi.danh-sach') }}">Cấu hình điểm câu hỏi</a>

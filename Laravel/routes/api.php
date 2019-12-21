@@ -21,7 +21,7 @@ Route::prefix('goi-credit')->group(function () {
 });
 
 Route::prefix('nguoi-choi')->group(function () {
-    Route::get('/dang-ky','API\NguoiChoiControllerAPI@register');
+    Route::post('/dang-ky','API\NguoiChoiControllerAPI@register');
     Route::get('/dang-nhap','API\NguoiChoiControllerAPI@login');
     Route::get('/{id}/doi-mat-khau','API\NguoiChoiControllerAPI@repassword');
     //

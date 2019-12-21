@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.xoa_quan_tri_vien').click(function () {
         Swal.fire({
             title: 'Bạn có chắc xóa không?',
-            text: 'Bạn sẽ không thể khôi phục quản trị viên này!',
+            text: "Bạn sẽ không thể khôi phục quản trị viên này!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

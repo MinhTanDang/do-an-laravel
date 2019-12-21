@@ -5,7 +5,6 @@
     use Illuminate\Http\Request;
     use App\Http\Requests\CapNhatLinhVucRequest;
     use App\Http\Requests\ThemMoiLinhVucRequest;
-
     use App\LinhVuc;
 
     class LinhVucController extends Controller

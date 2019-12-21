@@ -104,7 +104,7 @@ class CreateFullTable extends Migration
         Schema::create('cau_hinh_tro_giup', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('loai_tro_giup');
+            $table->string('loai_tro_giup');
             $table->integer('thu_tu');
             $table->integer('credit');
         });

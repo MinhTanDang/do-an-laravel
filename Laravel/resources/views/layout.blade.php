@@ -20,6 +20,9 @@
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+
+        <!--Sweet Alert2 css-->
+        <link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -57,5 +60,9 @@
 
         <!-- App js-->
         <script src="{{ asset('assets/js/app.min.js') }}"></script>
+
+         <!--Sweet Alert2 js-->
+         <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+         
     </body>
 </html>

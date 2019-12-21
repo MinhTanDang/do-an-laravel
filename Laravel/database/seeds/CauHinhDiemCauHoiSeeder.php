@@ -9,7 +9,8 @@ class CauHinhDiemCauHoiSeeder extends Seeder
             ['thu_tu' => 1, 'diem' => 100],
             ['thu_tu' => 5, 'diem' => 150],
             ['thu_tu' => 10, 'diem' => 300],
-            ['thu_tu' => 15, 'diem' => 700]
+            ['thu_tu' => 15, 'diem' => 700],
+            ['thu_tu' => 25, 'diem' => 1500]
         ]);
     }
 }
