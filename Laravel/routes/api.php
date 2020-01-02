@@ -1,35 +1,17 @@
 <?php
 
 use Illuminate\Http\Request;
+Route::middleware(['jwt.auth'])->group(function(){
+    Route::put('/cap-nhat-tai-khoan','API\NguoiChoiControllerAPI@capNhat');
+    Route::get('/linh-vuc','API\LinhVucControllerAPI@layDanhSach');
+    Route::get('/cau-hoi','API\CauHoiControllerAPI@layDanhSachTheoLinhVuc');
+    Route::post('/luu-luot-choi','API\NguoiChoiControllerAPI@luuLuotChoi');
+    Route::get('/lich-su-choi','API\NguoiChoiControllerAPI@layLichSuChoi');
+    Route::get('/bang-xep-hang','API\NguoiChoiControllerAPI@bangXepHang');
+    Route::get('/goi-credit','API\GoiCreditControllerAPI@layDanhSach');
+    Route::post('/mua-credit','API\NguoiChoiControllerAPI@muaCredit');
+});
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-Route::post('dang_nhap','API\LoginController@dangNhap');
-
-//Lay danh sach linh vuc
-Route::get('danh-sach-linh-vuc','API\LinhVucController@layDSLinhVuc');
-
-//Lay danh sach cau hoi theo tung linh vuc
-Route::get('danh-sach-cau-hoi/{id}','API\CauHoiController@layDSCauHoiTheoLinhVuc');
-
-//Lay danh sach nguoi choi
-Route::get('danh-sach-nguoi-choi','API\NguoiChoiController@layDSNguoiChoi');
-
-//Lay danh sach goi credit
-Route::get('danh-sach-goi-credit','API\GoiCreditController@layDSGoiCredit');
-
-//Xu ly dang nhap
-Route::post('xu-ly-dang-nhap','API\NguoiChoiController@xuLyDangNhap');
+Route::post('/dang-ky','API\NguoiChoiControllerAPI@dangKy');
+Route::post('/dang-nhap','API\NguoiChoiControllerAPI@dangNhap');
+Route::post('/quen-mat-khau','API\NguoiChoiControllerAPI@quenMatKhau');
